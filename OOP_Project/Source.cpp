@@ -52,6 +52,7 @@ int main()
 	e_list[1] = e2;
 	e_list[2] = e3;
 
+
 	cout << "OOP Project -> The Ticketing App" << endl;
 	cout << "By Miruna Sosea, 1060" << endl;
 	cout << "Please choose how we can help you:" << endl;
@@ -109,7 +110,7 @@ int main()
 			string type;
 			cin >> ws;
 			getline(cin, type);
-			cin >> type;
+
 			int k = 0;
 			for (int i = 0; i < n; i++)
 			{
