@@ -61,6 +61,7 @@ int main(int argc, char* argv[])
 	e3.setZones(z, 2);
 
 	vector<Event> e_list;
+	
 	if (argc == 1)
 	{
 		e_list.push_back(e1);
@@ -69,22 +70,43 @@ int main(int argc, char* argv[])
 	}
 	else if (argc == 2)
 	{
-		ofstream f;
-		f.open(argv[1], ios::out);
-		f << e1 << endl;
-		f << e2 << endl;
-		f << e3 << endl;
-		f.close();
 		ifstream g;
 		g.open(argv[1], ios::in);
-		while(!g.eof())
+		if (!g)
+		{
+			g.close();
+			ofstream f;
+			f.open(argv[1], ios::out);
+			f << e1 << endl;
+			f << e2 << endl;
+			f << e3 << endl;
+			f.close();
+		}
+		else
+		{
+			g.open(argv[1], ios::in);
+			g.seekg(0, ios::end);
+			if (g.tellg() == 0)
+			{
+				ofstream f;
+				f.open(argv[1], ios::out);
+				f << e1 << endl;
+				f << e2 << endl;
+				f << e3 << endl;
+				f.close();
+
+			}
+			g.close();
+		}
+		g.open(argv[1], ios::in);
+		while (!g.eof())
 		{
 			Event a;
 			g >> a;
 			e_list.push_back(a);
 		}
 		g.close();
-		e_list.pop_back();
+		e_list.pop_back(); 
 	}
 
 	cout << "OOP Project -> The Ticketing App" << endl;
