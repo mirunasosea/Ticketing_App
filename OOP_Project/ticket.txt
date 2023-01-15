@@ -1,0 +1,59 @@
+Concert
+Carnegie Hall
+14.02.2023
+18:30
+3
+VIP
+3
+6
+
+Tribune 1
+5
+10
+
+Tribune 2
+6
+7
+
+
+Football match
+National arena
+23.01.2023
+14:00
+2
+Tribune
+6
+3
+
+Longside
+3
+5
+
+
+Movie
+Cinema
+21.12.2022
+20:00
+2
+VIP
+4
+5
+
+Normal
+3
+4
+
+
+Opera
+National Theatre
+27.02.2023
+20:00
+2
+Balcony
+2
+3
+
+Category 1
+3
+5
+

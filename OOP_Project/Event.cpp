@@ -34,7 +34,6 @@ Event::~Event()
 }
 Event::Event(const Event& e)
 {
-	//cout << "s a apelat" << endl;
 	this->event_type = e.event_type;
 	if (e.location != nullptr)
 	{
@@ -48,7 +47,6 @@ Event::Event(const Event& e)
 	this->date = e.date;
 	this->hour = e.hour;
 	this->nZones = e.nZones;
-	//cout << "in copy constr: " << e.nZones << endl;
 	if (e.zones != nullptr)
 	{
 		this->zones = new Zone[e.nZones];
@@ -62,7 +60,6 @@ Event& Event::operator=(const Event& e)
 {
 	if (this != &e)
 	{
-		//cout << "Operator= merge?" << endl;
 		this->event_type = e.event_type;
 		if (e.location != nullptr)
 		{
@@ -135,7 +132,6 @@ int Event::getNZones()
 }
 void Event::setZones(Zone* z, int nZones)
 {
-	//cout << "intra aici" << endl;
 	this->nZones = nZones;
 	if (z != nullptr && nZones > 0)
 	{

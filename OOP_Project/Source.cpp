@@ -344,14 +344,4 @@ int main(int argc, char* argv[])
 		cin >> option;
 	}
 	
-	/*ifstream f;
-	
-	f.open("file.bin", ios::binary);
-	while(!f.eof())
-	{
-		int x;
-		f.read((char*)&x, sizeof(x));
-		cout << x;
-	}
-	f.close();*/
 }
