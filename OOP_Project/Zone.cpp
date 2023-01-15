@@ -171,7 +171,7 @@ bool Zone::operator==(Zone& z)
 ostream& operator<<(ostream& out, Zone z)
 {
 	out << "Zone type: " << z.zone_type << endl;
-	out << "Numebr of rows: " << z.rows << endl;
+	out << "Number of rows: " << z.rows << endl;
 	out << "Number of seats on each row: " << z.seats_per_row << endl;
 	out << "Number of available seats: " << z.available_tickets() << endl;
 	return out;
@@ -197,4 +197,31 @@ istream& operator>>(istream& in, Zone& z)
 				z.availability[i][j] = 0;
 	}
 	return in;
+}
+
+//operatorul de afisare in fisier
+ofstream& operator<<(ofstream& f, Zone z)
+{
+	f <<  z.zone_type << endl;
+	f <<  z.rows << endl;
+	f <<  z.seats_per_row << endl;
+	return f;
+}
+ifstream& operator>>(ifstream& f, Zone& z)
+{
+	f >> ws;
+	getline(f, z.zone_type);
+	f >> z.rows;
+	f >> z.seats_per_row;
+	if (z.rows > 0 && z.seats_per_row > 0) {
+		z.availability = new int* [z.rows];
+		for (int i = 0; i < z.rows; i++)
+		{
+			z.availability[i] = new int[z.seats_per_row];
+		}
+		for (int i = 0; i < z.rows; i++)
+			for (int j = 0; j < z.seats_per_row; j++)
+				z.availability[i][j] = 0;
+	}
+	return f;
 }

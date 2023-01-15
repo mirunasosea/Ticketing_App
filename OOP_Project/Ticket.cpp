@@ -1,6 +1,9 @@
 #include "Ticket.h"
 
+Ticket::Ticket()
+{
 
+}
 Ticket::Ticket(int number_id, int row, int seat, string event_name)
 {
 	this->number_id = number_id;
@@ -24,4 +27,8 @@ int Ticket::getSeat()
 {
 	return seat;
 }
-
+void Ticket::writeTicket(int number_id, string filename)
+{
+	ofstream appendFile(filename, ios::binary | ios::app);
+	appendFile.write((char*)&number_id, sizeof(number_id));
+}

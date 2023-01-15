@@ -30,13 +30,20 @@ public:
 	void setLocation(const char*);
 	void setDate(string);
 	void setHour(string);
-	friend ostream& operator<<(ostream&, Event);
-	friend istream& operator>>(istream&, Event&);
 	bool EventInMonth(int);
 	double maximumCapacity();
 	void bookTicket(Zone, int, int);
 	bool operator!();
+	friend ostream& operator<<(ostream&, Event);
+	friend istream& operator>>(istream&, Event&);
+	friend ofstream& operator<<(ofstream&, Event);
+	friend ifstream& operator>>(ifstream&, Event&);
+
 };
 ostream& operator<<(ostream&, Event);
 istream& operator>>(istream&, Event&);
+ofstream& operator<<(ofstream&, Event);
+ifstream& operator>>(ifstream&, Event&);
+
+
 

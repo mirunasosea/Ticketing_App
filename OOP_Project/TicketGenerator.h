@@ -1,7 +1,7 @@
 #pragma once
 #include "Ticket.h"
 #include <string>
-class TicketGenerator
+class TicketGenerator : public Ticket
 {
 private:
 	static int unique_id;
@@ -13,6 +13,8 @@ public:
 	static void changeMessage(string);
 	static int getUID();
 	Ticket generateTicket(int, int, string);
+	static void setUID(int);
+	int manageTicket(string);
 };
 
 

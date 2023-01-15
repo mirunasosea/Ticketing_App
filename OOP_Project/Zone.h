@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 
@@ -31,10 +32,14 @@ public:
 	bool operator==(Zone&);
 	friend ostream& operator<<(ostream&, Zone);
 	friend istream& operator>>(istream&, Zone&);
+	friend ofstream& operator<<(ofstream&, Zone);
+	friend ifstream& operator>>(ifstream&, Zone&);
 	
 };
 ostream& operator<<(ostream&, Zone);
 istream& operator>>(istream&, Zone&);
+ofstream& operator<<(ofstream&, Zone);
+ifstream& operator>>(ifstream&, Zone&);
 
 
 

@@ -253,7 +253,47 @@ istream& operator>>(istream& in, Event& e)
 	e.zones = new Zone[e.nZones];
 	for (int i = 0; i < e.nZones; i++)
 	{
-		cin >> e.zones[i];
+		in >> e.zones[i];
 	}
 	return in;
 }
+//afisare si citire din fisier
+ofstream& operator<<(ofstream& f, Event e)
+{
+	f << e.event_type << endl;
+	f << e.location << endl;
+	f << e.date << endl;
+	f << e.hour << endl;
+	f << e.nZones << endl;
+	if (e.zones != nullptr)
+	{
+		for (int i = 0; i < e.nZones; i++)
+		{
+			f << e.zones[i] << endl;
+		}
+	}
+	return f;
+}
+ifstream& operator>>(ifstream& f, Event& e)
+{
+	f >> ws;
+	getline(f, e.event_type);
+	if (e.location != nullptr)
+	{
+		delete[] e.location;
+	}
+	string buffer;
+	f >> ws;
+	getline(f, buffer);
+	e.setLocation(buffer.c_str());
+	f >> e.date;
+	f >> e.hour;
+	f >> e.nZones;
+	e.zones = new Zone[e.nZones];
+	for (int i = 0; i < e.nZones; i++)
+	{
+		f >> e.zones[i];
+	}
+	return f;
+}
+
